@@ -31,3 +31,4 @@
 .\objects\main.o: .\Hardware\Receiver.h
 .\objects\main.o: .\Hardware\USART.h
 .\objects\main.o: .\Hardware\PWM.h
+.\objects\main.o: .\Hardware\Led.h

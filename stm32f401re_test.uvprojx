@@ -910,6 +910,16 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\Receiver.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Led.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
