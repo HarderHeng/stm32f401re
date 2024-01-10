@@ -27,7 +27,7 @@ Project File Date:  01/10/2024
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling Led.c...
+compiling USART.c...
 .\Start\stm32f4xx.h(11581): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM1_STOP"  (declared at line 11574)
   #define  DBGMCU_APB2_FZ_DBG_TIM1_STOP        DBGMCU_APB1_FZ_DBG_TIM1_STOP    
 .\Start\stm32f4xx.h(11582): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM8_STOP"  (declared at line 11575)
@@ -38,17 +38,13 @@ compiling Led.c...
   #define  DBGMCU_APB2_FZ_DBG_TIM10_STOP       DBGMCU_APB1_FZ_DBG_TIM10_STOP
 .\Start\stm32f4xx.h(11585): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM11_STOP"  (declared at line 11578)
   #define  DBGMCU_APB2_FZ_DBG_TIM11_STOP       DBGMCU_APB1_FZ_DBG_TIM11_STOP
-Hardware\Led.c(5): warning:  #1294-D: Old-style function Led_Init
-  void Led_Init(viod){
-Hardware\Led.c(5): warning:  #1079-D: standard requires that parameter "viod"  be given a type by a subsequent declaration ("int" assumed)
-  void Led_Init(viod){
-Hardware\Led.c(19): warning:  #1-D: last line of file ends without a newline
+Hardware\USART.c(75): warning:  #1-D: last line of file ends without a newline
   }
-Hardware\Led.c: 8 warnings, 0 errors
+Hardware\USART.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=744 RO-data=420 RW-data=0 ZI-data=1024  
+Program Size: Code=1696 RO-data=436 RW-data=16 ZI-data=1024  
 FromELF: creating hex file...
-".\Objects\stm32f401re_test.axf" - 0 Error(s), 8 Warning(s).
+".\Objects\stm32f401re_test.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 

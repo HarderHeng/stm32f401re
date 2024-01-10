@@ -3,7 +3,7 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
 #include "misc.h"
-//使用USART1外设，对应板子上的PA9（TX）和PA10（RX）
+//使用USART1外设，对应板子上的PB6（TX）和PB7（RX）
 uint8_t Serial_RxData;
 uint8_t Serial_RxFlag;
 
@@ -18,14 +18,13 @@ void Serial_Init(void) {
 	USART_InitInstructure.USART_WordLength = USART_WordLength_8b; //每一句长8bit
 	USART_Init(USART1, &USART_InitInstructure);
 	
-	GPIO_PinAFConfig(GPIOA,9,GPIO_AF_USART1);
-	GPIO_PinAFConfig(GPIOA,10,GPIO_AF_USART1);
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); //初始化GPIOA的时钟
+
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //初始化GPIOA的时钟
 	GPIO_InitTypeDef GPIO_InitInstructure;
 	GPIO_InitInstructure.GPIO_Mode = GPIO_Mode_AF; //GPIO复用模式才能被USART外设所调用
 	GPIO_InitInstructure.GPIO_OType = GPIO_OType_PP; //USART要用推挽
-	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10; //初始化两个口，现在两个口同时具有输入和输出的能力，实际上只需要TX输出，RX输入 
+	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7; //初始化两个口，现在两个口同时具有输入和输出的能力，实际上只需要TX输出，RX输入 
 	GPIO_InitInstructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉输入
 	GPIO_InitInstructure.GPIO_Speed = GPIO_Speed_50MHz; 
 	GPIO_Init(GPIOA, &GPIO_InitInstructure);

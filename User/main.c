@@ -9,6 +9,8 @@
 #include "PWM.h"
 #include "Led.h"
 int main() {
+	Serial_Init();
+	Serial_SendByte(0x41);
 	Led_Init();
 	while(1){
 		
