@@ -3,6 +3,7 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
 #include "misc.h"
+
 //使用USART1外设，对应板子上的PB6（TX）和PB7（RX）
 uint8_t Serial_RxData;
 uint8_t Serial_RxFlag;
@@ -11,7 +12,7 @@ void Serial_Init(void) {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); //初始化USART1的时钟
 	
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //初始化GPIOA的时钟
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //初始化GPIOB的时钟
 	GPIO_InitTypeDef GPIO_InitInstructure;
 	GPIO_InitInstructure.GPIO_Mode = GPIO_Mode_AF; //GPIO复用模式才能被USART外设所调用
 	GPIO_InitInstructure.GPIO_OType = GPIO_OType_PP; //USART要用推挽
@@ -39,6 +40,8 @@ void Serial_Init(void) {
 	USART_InitInstructure.USART_WordLength = USART_WordLength_8b; //每一句长8bit
 	USART_Init(USART1, &USART_InitInstructure);
 	
+	
+
 	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //开启RXNE标志位的中断,当接收寄存器不是空的时候触发中断
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	NVIC_InitTypeDef NVIC_InitInstructure;

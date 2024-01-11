@@ -22,6 +22,7 @@
 #define GYRO_ZOUT_L 0x48 
 
 #define PWR_MGMT_1 0x6B //0x00
+#define	PWR_MGMT_2 0x6C
 
 void MPU_WriteRegAdress(uint8_t address, uint8_t data){
 	IIC_Start();
@@ -39,11 +40,16 @@ uint8_t MPU_ReadRegAdress(uint8_t address){
 	IIC_SendByte(MPU6050_Address);
 	IIC_ReceiveACK();
 	IIC_SendByte(address);
+	IIC_ReceiveACK();
+	
 	IIC_Start();
 	IIC_SendByte(MPU6050_Address|0x01);
 	IIC_ReceiveACK();
 	byte=IIC_ReceiveByte();
 	IIC_SendACK(1);
+	IIC_Stop();
+	
+	return byte;
 }
 void MPU_GetAccelorationData(uint8_t *array){
 	uint8_t NowAddress = ACCEL_XOUT_H;
@@ -61,9 +67,10 @@ void MPU_GetArgulaData(uint8_t *array){
 }
 void MPU_Init(void){
 	IIC_Init();
-	MPU_WriteRegAdress(PWR_MGMT_1,0x00);
-	MPU_WriteRegAdress(SampleRateDivider,0x07);
+	MPU_WriteRegAdress(PWR_MGMT_1,0x01);
+	MPU_WriteRegAdress(PWR_MGMT_2,0x00);
+	MPU_WriteRegAdress(SampleRateDivider,0x09);
 	MPU_WriteRegAdress(ConfigRegAddress,0x06);
 	MPU_WriteRegAdress(GYROConfigRegAddress,0x18);
-	MPU_WriteRegAdress(AccelConfigRegAddress,0x01);
+	MPU_WriteRegAdress(AccelConfigRegAddress,0x18);
 }

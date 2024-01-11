@@ -27,3 +27,4 @@
 .\objects\hmc5883l.o: .\Libraries\stm32f4xx_usart.h
 .\objects\hmc5883l.o: .\Libraries\stm32f4xx_wwdg.h
 .\objects\hmc5883l.o: .\Libraries\misc.h
+.\objects\hmc5883l.o: Hardware\IICBySoftware.h
