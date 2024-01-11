@@ -12,8 +12,9 @@ int main() {
 	Serial_Init();
 	
 	Led_Init();
+	USART_SendData(USART1, 0x41);
 	while(1){
-		Serial_SendByte(0x41);
+		
 	};
 }  
 

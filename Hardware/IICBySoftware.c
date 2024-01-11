@@ -6,28 +6,28 @@
  * @brief 初始化函数
  */
 void IIC_Init(void) {
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
 	GPIO_InitTypeDef GPIO_InitInstructure;
 	GPIO_InitInstructure.GPIO_Mode = GPIO_Mode_OUT; //输出模式
 	GPIO_InitInstructure.GPIO_OType = GPIO_OType_OD; //开漏输出可以不用切换输入输出模式
-	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14;
+	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
 	GPIO_InitInstructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉输入
 	GPIO_InitInstructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_SetBits(GPIOA, GPIO_Pin_13 | GPIO_Pin_14);
+	GPIO_SetBits(GPIOA, GPIO_Pin_8 | GPIO_Pin_9);
 	//初始化GPIOA的13和14口
 }
 /**
 *@brief 向SCL写数值
 */
 void SCL_W(int x) {
-	GPIO_WriteBit(GPIOA, GPIO_Pin_13, (BitAction)x);
+	GPIO_WriteBit(GPIOB, GPIO_Pin_8, (BitAction)x);
 	Delay_us(10);
 }
 /**
 *@brief 向SDA写数值
 */
 void SDA_W(int x) {
-	GPIO_WriteBit(GPIOA, GPIO_Pin_14, (BitAction)x);
+	GPIO_WriteBit(GPIOB, GPIO_Pin_9, (BitAction)x);
 	Delay_us(10);
 }
 /**
@@ -35,7 +35,7 @@ void SDA_W(int x) {
 */
 uint8_t SDA_R(void) {
 	uint8_t bit;
-	bit = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_14);
+	bit = GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9);
 	Delay_us(10);
 	return bit;
 }
