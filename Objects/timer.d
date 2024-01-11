@@ -1,7 +1,7 @@
 .\objects\timer.o: Hardware\Timer.c
 .\objects\timer.o: .\Start\stm32f4xx.h
 .\objects\timer.o: .\Start\core_cm4.h
-.\objects\timer.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\timer.o: D:\work\Keil_5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 .\objects\timer.o: .\Start\core_cmInstr.h
 .\objects\timer.o: .\Start\core_cmFunc.h
 .\objects\timer.o: .\Start\core_cmSimd.h

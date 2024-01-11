@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_crc.o: Libraries\stm32f4xx_crc.h
 .\objects\stm32f4xx_crc.o: .\Start\stm32f4xx.h
 .\objects\stm32f4xx_crc.o: .\Start\core_cm4.h
-.\objects\stm32f4xx_crc.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_crc.o: D:\work\Keil_5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 .\objects\stm32f4xx_crc.o: .\Start\core_cmInstr.h
 .\objects\stm32f4xx_crc.o: .\Start\core_cmFunc.h
 .\objects\stm32f4xx_crc.o: .\Start\core_cmSimd.h

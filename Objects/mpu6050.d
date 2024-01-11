@@ -1,7 +1,7 @@
 .\objects\mpu6050.o: Hardware\MPU6050.c
 .\objects\mpu6050.o: .\Start\stm32f4xx.h
 .\objects\mpu6050.o: .\Start\core_cm4.h
-.\objects\mpu6050.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mpu6050.o: D:\work\Keil_5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 .\objects\mpu6050.o: .\Start\core_cmInstr.h
 .\objects\mpu6050.o: .\Start\core_cmFunc.h
 .\objects\mpu6050.o: .\Start\core_cmSimd.h

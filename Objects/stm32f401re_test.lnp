@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 ".\objects\misc.o"
 ".\objects\stm32f4xx_adc.o"
 ".\objects\stm32f4xx_can.o"
@@ -44,7 +44,6 @@
 ".\objects\startup_stm32f401xx.o"
 ".\objects\system_stm32f4xx.o"
 ".\objects\iicbysoftware.o"
-".\objects\delay.o"
 ".\objects\mpu6050.o"
 ".\objects\hmc5883l.o"
 ".\objects\usart.o"
@@ -52,6 +51,7 @@
 ".\objects\pwm.o"
 ".\objects\receiver.o"
 ".\objects\led.o"
+".\objects\delay.o"
 --library_type=microlib --strict --scatter ".\Objects\stm32f401re_test.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_hash_sha1.o: Libraries\stm32f4xx_hash.h
 .\objects\stm32f4xx_hash_sha1.o: .\Start\stm32f4xx.h
 .\objects\stm32f4xx_hash_sha1.o: .\Start\core_cm4.h
-.\objects\stm32f4xx_hash_sha1.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_hash_sha1.o: D:\work\Keil_5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 .\objects\stm32f4xx_hash_sha1.o: .\Start\core_cmInstr.h
 .\objects\stm32f4xx_hash_sha1.o: .\Start\core_cmFunc.h
 .\objects\stm32f4xx_hash_sha1.o: .\Start\core_cmSimd.h

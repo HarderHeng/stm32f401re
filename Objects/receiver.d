@@ -1,7 +1,7 @@
 .\objects\receiver.o: Hardware\Receiver.c
 .\objects\receiver.o: .\Start\stm32f4xx.h
 .\objects\receiver.o: .\Start\core_cm4.h
-.\objects\receiver.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\receiver.o: D:\work\Keil_5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 .\objects\receiver.o: .\Start\core_cmInstr.h
 .\objects\receiver.o: .\Start\core_cmFunc.h
 .\objects\receiver.o: .\Start\core_cmSimd.h

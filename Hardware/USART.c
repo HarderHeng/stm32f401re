@@ -9,6 +9,27 @@ uint8_t Serial_RxFlag;
 
 void Serial_Init(void) {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); //初始化USART1的时钟
+	
+
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //初始化GPIOA的时钟
+	GPIO_InitTypeDef GPIO_InitInstructure;
+	GPIO_InitInstructure.GPIO_Mode = GPIO_Mode_AF; //GPIO复用模式才能被USART外设所调用
+	GPIO_InitInstructure.GPIO_OType = GPIO_OType_PP; //USART要用推挽
+	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_7; //初始化两个口，现在两个口同时具有输入和输出的能力，实际上只需要TX输出，RX输入 
+	GPIO_InitInstructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉输入
+	GPIO_InitInstructure.GPIO_Speed = GPIO_High_Speed; 
+	GPIO_Init(GPIOB, &GPIO_InitInstructure);
+	
+	GPIO_InitInstructure.GPIO_Mode = GPIO_Mode_AF; //GPIO复用模式才能被USART外设所调用
+	GPIO_InitInstructure.GPIO_OType = GPIO_OType_PP; //USART要用推挽
+	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_6; //初始化两个口，现在两个口同时具有输入和输出的能力，实际上只需要TX输出，RX输入 
+	GPIO_InitInstructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉输入
+	GPIO_InitInstructure.GPIO_Speed = GPIO_High_Speed; 
+	GPIO_Init(GPIOB, &GPIO_InitInstructure);
+	
+	GPIO_PinAFConfig(GPIOB,6,GPIO_AF_USART1);
+	GPIO_PinAFConfig(GPIOB,7,GPIO_AF_USART1);
+	
 	USART_InitTypeDef USART_InitInstructure; //初始化USART外设（类似于初始化GPIO端口）
 	USART_InitInstructure.USART_BaudRate = 9600;//波特率
 	USART_InitInstructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //硬件流控制
@@ -17,25 +38,6 @@ void Serial_Init(void) {
 	USART_InitInstructure.USART_StopBits = USART_StopBits_1; //停止位一位
 	USART_InitInstructure.USART_WordLength = USART_WordLength_8b; //每一句长8bit
 	USART_Init(USART1, &USART_InitInstructure);
-	
-	GPIO_PinAFConfig(GPIOB,6,GPIO_AF_USART1);
-	GPIO_PinAFConfig(GPIOB,7,GPIO_AF_USART1);
-
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); //初始化GPIOA的时钟
-	GPIO_InitTypeDef GPIO_InitInstructure;
-	GPIO_InitInstructure.GPIO_Mode = GPIO_Mode_AF; //GPIO复用模式才能被USART外设所调用
-	GPIO_InitInstructure.GPIO_OType = GPIO_OType_PP; //USART要用推挽
-	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_7; //初始化两个口，现在两个口同时具有输入和输出的能力，实际上只需要TX输出，RX输入 
-	GPIO_InitInstructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉输入
-	GPIO_InitInstructure.GPIO_Speed = GPIO_Speed_50MHz; 
-	GPIO_Init(GPIOA, &GPIO_InitInstructure);
-	
-	GPIO_InitInstructure.GPIO_Mode = GPIO_Mode_AF; //GPIO复用模式才能被USART外设所调用
-	GPIO_InitInstructure.GPIO_OType = GPIO_OType_PP; //USART要用推挽
-	GPIO_InitInstructure.GPIO_Pin = GPIO_Pin_6; //初始化两个口，现在两个口同时具有输入和输出的能力，实际上只需要TX输出，RX输入 
-	GPIO_InitInstructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉输入
-	GPIO_InitInstructure.GPIO_Speed = GPIO_Speed_50MHz; 
-	GPIO_Init(GPIOA, &GPIO_InitInstructure);
 	
 	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //开启RXNE标志位的中断,当接收寄存器不是空的时候触发中断
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
@@ -46,8 +48,6 @@ void Serial_Init(void) {
 	NVIC_InitInstructure.NVIC_IRQChannelSubPriority = 1; //响应优先级
 	NVIC_Init(&NVIC_InitInstructure);
 	
-	GPIO_PinAFConfig(GPIOB,6,GPIO_AF_USART1);
-	GPIO_PinAFConfig(GPIOB,7,GPIO_AF_USART1);
 	
 	USART_Cmd(USART1, ENABLE);
 }

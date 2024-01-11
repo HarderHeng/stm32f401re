@@ -1,7 +1,7 @@
 .\objects\iicbysoftware.o: Hardware\IICBySoftware.c
 .\objects\iicbysoftware.o: .\Start\stm32f4xx.h
 .\objects\iicbysoftware.o: .\Start\core_cm4.h
-.\objects\iicbysoftware.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\iicbysoftware.o: D:\work\Keil_5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 .\objects\iicbysoftware.o: .\Start\core_cmInstr.h
 .\objects\iicbysoftware.o: .\Start\core_cmFunc.h
 .\objects\iicbysoftware.o: .\Start\core_cmSimd.h
